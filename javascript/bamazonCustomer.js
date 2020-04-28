@@ -25,25 +25,12 @@ function shopping(){
     console.log("We're shopping now");
     connection.query('SELECT * FROM products', function (err, res){
         if (err) throw err;
-        var table = new Table (
-         {
-            head: ["Product_name".cyan.bold, "Item_id".cyan.bold, "Department_name".cyan.bold, "Price".cyan.bold, "Stock_quantity".cyan.bold],
-            colWidths: [12, 12, 12, 12, 12],
-           
-         });
-         
-         for (i=0; i < res.length; i++){
-             table.push([res[i].Product_name, res[i].Item_id, res[i].Department_name, res[i].Price, res[i].Stock_quantity]);
-         }
-         console.log(table);
- 
-        
-
-    
-
-         
-         console.log("res =" + res); 
-        
+        console.log("res.length=" + res.length);
+        console.log("res[0]=" + res [0]);
+        console.log(res);
+        for(i=0; i <res.length; i++){
+        console.log(res[i].item_id + " " + res[i].product_name + " " + res[i].department_name + " " + res[i].price + " " + res[i].stock_quantity);
+        }
     })
 }
 
@@ -65,5 +52,5 @@ function shopping(){
 
 
 
-//console.log("haha it works");
+
 
